@@ -1,3 +1,5 @@
+import { Build } from './build'
+
 class RotationSystem implements ISystem {
   _entities: Entity[] = []
 
@@ -17,13 +19,13 @@ const rs = new RotationSystem()
 engine.addSystem(rs)
 
 const scene = new Entity()
+// scene.addComponent(new BoxShape())
+scene.addComponent(new Transform({
+  position: new Vector3(96,0,64)
+}))
 engine.addEntity(scene)
 
-const build = new Entity()
-build.addComponent(new GLTFShape('models/build.glb'))
-build.addComponent(new Transform({
-  position: new Vector3(160, 0, 160)
-}))
+const build = new Build()
 build.setParent(scene)
 
 const rotatingTotem = new Entity()
@@ -32,7 +34,7 @@ rotatingTotem.addComponent(new Transform({
   position: new Vector3(-79, 1, -79)
 }))
 rs.setEntity([rotatingTotem])
-rotatingTotem.setParent(build)
+// rotatingTotem.setParent(build)
 
 const linkTotem = new Entity()
 linkTotem.addComponent(new GLTFShape('models/totem2.glb'))
@@ -42,7 +44,7 @@ linkTotem.addComponent(new Transform({
 linkTotem.addComponent(new OnPointerDown(() => {
   openExternalURL('https://web3ads.net/')
 }, { hoverText: 'Open link' }))
-linkTotem.setParent(build)
+// linkTotem.setParent(build)
 
 const pdfTotem = new Entity()
 pdfTotem.addComponent(new GLTFShape('models/totem3.glb'))
@@ -52,4 +54,4 @@ pdfTotem.addComponent(new Transform({
 pdfTotem.addComponent(new OnPointerDown(() => {
   openExternalURL('https://web3ads.net/docs/web3ads_offer_2023_03.pdf')
 }, { hoverText: 'Open PDF' }))
-pdfTotem.setParent(build)
+// pdfTotem.setParent(build)
