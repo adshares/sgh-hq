@@ -1,5 +1,8 @@
 import { TriggerBoxShape, TriggerComponent } from '@dcl/ecs-scene-utils'
 import { movePlayerTo } from '@decentraland/RestrictedActions'
+import SoundSource from './soundSource'
+import { NPC } from '@dcl/npc-scene-utils'
+import { CustomNPC } from './NPC'
 
 export class Build extends Entity {
   constructor () {
@@ -56,6 +59,25 @@ export class Build extends Entity {
     }))
     teleportDownZone.addComponent(teleportDownTriggerComponent)
     teleportDownZone.setParent(teleportDown)
+
+    const audioSource1 = new SoundSource('sounds/SimpsonWave1995.mp3')
+    audioSource1.addComponent(new Transform({
+      position: new Vector3(-30, 2.88, -10)
+    }))
+    // audioSource1.addComponent(new BoxShape())
+    audioSource1.setParent(this)
+
+    const npc = new CustomNPC(
+      'whiteRabbit',
+      'models/whiteRabbit.glb',
+      {
+        position: new Vector3(-30, 2.05, -10),
+        rotation: Quaternion.Euler(0,180,0)
+      },
+      // [[{ text: 'Hej <3', isEndOfDialog: true, timeOn: 4 }]],
+
+    )
+    npc.setParent(this)
 
   }
 
