@@ -3,7 +3,16 @@ import { Totem } from './totem'
 
 const resources = {
   linkToGoogle: 'https://google.com',
-  exampleImage: 'images/SGH_grafika_1.png'
+  exampleImage: 'images/SGH_grafika_1.png',
+  floor1: 'images/floor/1.jpg',
+  floor2: 'images/floor/2.jpg',
+  floor3: 'images/floor/3.jpg',
+  floor4: 'images/floor/4.jpg',
+  floor5: 'images/floor/5.jpg',
+  floor6: 'images/floor/6.jpg',
+  floor7: 'images/floor/7.jpg',
+  floor8: 'images/floor/8.jpg',
+  floor9: 'images/floor/9.jpg',
 }
 
 class RotationSystem implements ISystem {
@@ -35,7 +44,9 @@ build.setParent(scene)
 
 /*----------------------TOTEMY DACH--------------------------*/
 const totem_chmura = new Totem('models/totemy-dach/totem_chmura.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor4
+  }
 })
 totem_chmura.addComponent(new Transform({
   position: new Vector3(-21.014, 21.817, -12.697)
@@ -46,7 +57,7 @@ rs.setEntity([totem_chmura])
 const totem_kartagraficzna = new Totem('models/totemy-dach/totem_kartagraficzna.glb', {
   // link: resources.linkToGoogle
   image: {
-    path: resources.exampleImage
+    path: resources.floor7
   }
 })
 totem_kartagraficzna.addComponent(new Transform({
@@ -56,7 +67,9 @@ totem_kartagraficzna.setParent(build)
 rs.setEntity([totem_kartagraficzna])
 
 const totem_macintosh = new Totem('models/totemy-dach/totem_macintosh.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor2
+  }
 })
 totem_macintosh.addComponent(new Transform({
   position: new Vector3(-12.524, 21.817, -20.977)
@@ -65,7 +78,9 @@ totem_macintosh.setParent(build)
 rs.setEntity([totem_macintosh])
 
 const totem_meta = new Totem('models/totemy-dach/totem_meta.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor9
+  }
 })
 totem_meta.addComponent(new Transform({
   position: new Vector3(-43.17, 21.817, -51.825)
@@ -74,7 +89,9 @@ totem_meta.setParent(build)
 rs.setEntity([totem_meta])
 
 const totem_minecraft = new Totem('models/totemy-dach/totem_minecraft.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor6
+  }
 })
 totem_minecraft.addComponent(new Transform({
   position: new Vector3(-51.737, 21.817, -20.971)
@@ -85,7 +102,7 @@ rs.setEntity([totem_minecraft])
 const totem_pizza = new Totem('models/totemy-dach/totem_pizza.glb', {
   // link: resources.linkToGoogle
   image: {
-    path: resources.exampleImage
+    path: resources.floor5
   }
 })
 totem_pizza.addComponent(new Transform({
@@ -95,7 +112,9 @@ totem_pizza.setParent(build)
 rs.setEntity([totem_pizza])
 
 const totem_sfera = new Totem('models/totemy-dach/totem_sfera.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor1
+  }
 })
 totem_sfera.addComponent(new Transform({
   position: new Vector3(-21.059, 21.817, -51.678)
@@ -104,7 +123,9 @@ totem_sfera.setParent(build)
 rs.setEntity([totem_sfera])
 
 const totem_shiba = new Totem('models/totemy-dach/totem_shiba.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor8
+  }
 })
 totem_shiba.addComponent(new Transform({
   position: new Vector3(-43.111, 21.817, -12.498)
@@ -113,7 +134,9 @@ totem_shiba.setParent(build)
 rs.setEntity([totem_shiba])
 
 const totem_www = new Totem('models/totemy-dach/totem_www.glb', {
-  link: resources.linkToGoogle
+  image: {
+    path: resources.floor3
+  }
 })
 totem_www.addComponent(new Transform({
   position: new Vector3(-32.064, 21.817, -12.568)
