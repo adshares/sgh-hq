@@ -25,28 +25,32 @@ export class CustomNPC extends NPC {
       position,
       model,
       () => {
-        return null
+        // this.talkBubble([
+        //   {
+        //     text: 'Hej. Milo Cie widziec <3',
+        //     timeOn: 4,
+        //     typeSpeed: 100,
+        //     isEndOfDialog: true
+        //   }
+        // ], 0)
       },
       {
         walkingAnim: 'Walk',
         idleAnim: 'Idle',
-        reactDistance: 1, //number;
-        onlyExternalTrigger: true, //boolean;
-        coolDownDuration: 2, //number;
-        walkingSpeed: 2,
-        // faceUser: true,
-        turningSpeed: 1
+        onlyExternalTrigger: true,
+        // reactDistance: 5, //number;
+        walkingSpeed: 15,
+        continueOnWalkAway: true,
+        coolDownDuration: 3,
+        darkUI: true
       }
     )
-
-    const av = new AvatarShape()
-    // engine.addEntity(av)
-
 
     this.walkToNextPoint()
   }
 
   onWalkAway = () => {
+    log('onWalkAway')
     this.endInteraction()
     this.walkToNextPoint()
   }
@@ -87,6 +91,7 @@ export class CustomNPC extends NPC {
         this.playAnimation(anim.name, true, anim.duration)
 
         this.followPathTimeout = setTimeout(anim.duration * 1000, () => {
+          // if (this.isInteracted) return
           this.walkToNextPoint(nextPos)
         })
       },

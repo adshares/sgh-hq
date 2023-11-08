@@ -9,7 +9,7 @@ export class Build extends Entity {
     super()
 
     const build = new Entity()
-    build.addComponent(new GLTFShape('models/sgh-build_2.glb'))
+    build.addComponent(new GLTFShape('models/sgh-build_3.glb'))
     build.setParent(this)
 
     const groundCoords = new Vector3(59.39, 2.88, 15)
@@ -72,9 +72,7 @@ export class Build extends Entity {
       'models/whiteRabbit.glb',
       {
         position: new Vector3(-30, 2.05, -10),
-        rotation: Quaternion.Euler(0,180,0)
-      },
-      // [[{ text: 'Hej <3', isEndOfDialog: true, timeOn: 4 }]],
+      }
 
     )
     npc.setParent(this)

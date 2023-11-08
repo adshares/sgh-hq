@@ -48,13 +48,12 @@ const totem_kartagraficzna = new Totem('models/totemy-dach/totem_kartagraficzna.
       position: new Vector3(0,1.5,0)
     }
   },
-  // link: resources.linkToGoogle
   image: {
     path: resources.floor7
   }
 })
 totem_kartagraficzna.addComponent(new Transform({
-  position: new Vector3(-12.809, 21.817, -42.898)
+  position: new Vector3(-51.737, 21.817, -20.971)
 }))
 totem_kartagraficzna.setParent(build)
 
@@ -70,7 +69,7 @@ const totem_macintosh = new Totem('models/totemy-dach/totem_macintosh.glb', {
   }
 })
 totem_macintosh.addComponent(new Transform({
-  position: new Vector3(-12.524, 21.817, -20.977)
+  position: new Vector3(-12.809, 21.817, -42.898)
 }))
 totem_macintosh.setParent(build)
 
@@ -102,7 +101,7 @@ const totem_minecraft = new Totem('models/totemy-dach/totem_minecraft.glb', {
   }
 })
 totem_minecraft.addComponent(new Transform({
-  position: new Vector3(-51.737, 21.817, -20.971)
+  position: new Vector3(-43.111, 21.817, -12.498)
 }))
 totem_minecraft.setParent(build)
 
@@ -113,13 +112,12 @@ const totem_pizza = new Totem('models/totemy-dach/totem_pizza.glb', {
       position: new Vector3(0,2,0)
     }
   },
-  // link: resources.linkToGoogle
   image: {
     path: resources.floor5
   }
 })
 totem_pizza.addComponent(new Transform({
-  position: new Vector3(-51.802, 21.817, -43.007)
+  position: new Vector3(-32.064, 21.817, -12.568)
 }))
 totem_pizza.setParent(build)
 
@@ -151,7 +149,7 @@ const totem_shiba = new Totem('models/totemy-dach/totem_shiba.glb', {
   }
 })
 totem_shiba.addComponent(new Transform({
-  position: new Vector3(-43.111, 21.817, -12.498)
+  position: new Vector3(-51.802, 21.817, -43.007)
 }))
 totem_shiba.setParent(build)
 
@@ -167,7 +165,7 @@ const totem_www = new Totem('models/totemy-dach/totem_www.glb', {
   }
 })
 totem_www.addComponent(new Transform({
-  position: new Vector3(-32.064, 21.817, -12.568)
+  position: new Vector3(-12.524, 21.817, -20.977)
 }))
 totem_www.setParent(build)
 /*----------------------TOTEMY DACH--------------------------*/
