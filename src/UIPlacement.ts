@@ -10,8 +10,14 @@ export class UIPlacement extends Entity {
 
   private _closeIcon: UIImage = new UIImage(this._placement, theme)
 
-  constructor () {
+  private sw: number
+  private sh: number
+
+  constructor (image: { path: string, sw?: number, sh?: number }) {
     super()
+
+    this.sw = image.sw || 1654
+    this.sh = image.sh || 1654
 
     this._width = 600
     this._height = 600
@@ -39,8 +45,8 @@ export class UIPlacement extends Entity {
     this._placement.source = new Texture(path)
     this._placement.width = this._width
     this._placement.height = this._height
-    this._placement.sourceWidth = 1654
-    this._placement.sourceHeight = 1654
+    this._placement.sourceWidth = this.sw
+    this._placement.sourceHeight = this.sh
 
     this._placement.visible = true
     this._placement.isPointerBlocker = true
@@ -59,5 +65,12 @@ export class UIPlacement extends Entity {
       this._placement.visible = false
       this._closeIcon.visible = false
     }
+  }
+
+
+  public imageLink(url: string): void {
+    this._placement.onClick = new OnClick(() => {
+      openExternalURL(url)
+    })
   }
 }

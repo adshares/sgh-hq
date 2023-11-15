@@ -1,4 +1,4 @@
-import { Dialog, NPC } from '@dcl/npc-scene-utils'
+import { ButtonStyles, CustomDialogButton, Dialog, NPC } from '@dcl/npc-scene-utils'
 import { RotateTransformComponent, setTimeout, TriggerBoxShape, TriggerComponent } from '@dcl/ecs-scene-utils'
 
 const ANIM_TIME_PADD = .2
@@ -15,6 +15,87 @@ const randomProperty = function(obj: { [key: string]: { name: string, duration: 
 
 export class CustomNPC extends NPC {
   followPathTimeout: Entity | undefined
+  dialogIdx: number = 0
+  standardDialogBtn1 = this.dialog.button1
+  isInteracted: boolean = false
+
+  dialogScript = [
+    { // 0
+      text: 'Welcome to Warsaw School of Economics metaverse bar! Would you like to have a drink?',
+      isQuestion: true,
+      buttons: [
+        {
+          goToDialog: 1,
+          triggeredActions: () => {
+            this.checkDialogIdx(1)
+          },
+          label: 'Yes'
+        },
+        {
+          goToDialog: 4,
+          label: 'No',
+          triggeredActions: () => {
+            this.checkDialogIdx(4)
+          }
+        }
+      ]
+    },
+    { // 1
+      text: 'Stay tuned then! This bar functions as a testing environment for upcoming blockchain transactions. It\'s a project under the auspices of Blockchain Society Poland.'
+    },
+    { // 2
+      text: 'Once the project concludes, you\'ll receive your favorite drink. Interested in becoming a part of our blockchain project?',
+      isQuestion: true,
+      buttons: [
+        {
+          goToDialog: 3,
+          label: 'Yes',
+          triggeredActions: () => {
+            this.checkDialogIdx(3)
+          }
+        },
+        {
+          goToDialog: 4,
+          label: 'No',
+          triggeredActions: () => {
+            this.checkDialogIdx(4)
+          }
+        }
+      ]
+    },
+    { // 3
+      text: 'Contact us via our LinkedIn http://bit.ly/40C8dhF',
+      isQuestion: true,
+      buttons: [
+        {
+          goToDialog: 3,
+          label: 'Linkedin (Click)',
+          triggeredActions: () => {
+            this.checkDialogIdx(3)
+          }
+        }
+      ]
+    },
+    { // 4
+      text: 'Have a nice stay then. There is a nice exhibition on the rooftop.',
+      isEndOfDialog: true,
+      isQuestion: true,
+      buttons: [
+        {
+          goToDialog: 4,
+          label: 'Bye',
+          triggeredActions: () => {
+            this.checkDialogIdx(0)
+            this.dialog.closeDialogWindow()
+          }
+        }
+      ],
+      triggeredByNext: () => {
+        this.onWalkAway()
+        this.checkDialogIdx(0)
+      }
+    }
+  ]
 
   constructor (
     name: string,
@@ -25,28 +106,62 @@ export class CustomNPC extends NPC {
       position,
       model,
       () => {
-        // this.talkBubble([
-        //   {
-        //     text: 'Hej. Milo Cie widziec <3',
-        //     timeOn: 4,
-        //     typeSpeed: 100,
-        //     isEndOfDialog: true
-        //   }
-        // ], 0)
+        if (this.isInteracted) return
+        this.isInteracted = true
+        this.stopWalking()
+        this.talk(this.dialogScript)
       },
       {
         walkingAnim: 'Walk',
         idleAnim: 'Idle',
-        onlyExternalTrigger: true,
-        // reactDistance: 5, //number;
+        onlyClickTrigger: true,
+        reactDistance: 5, //number;
         walkingSpeed: 15,
         continueOnWalkAway: true,
         coolDownDuration: 3,
-        darkUI: true
+        darkUI: true,
+        faceUser: true
       }
     )
-
     this.walkToNextPoint()
+  }
+
+  checkDialogIdx = (idx: number) => {
+    this.dialogIdx = idx
+
+    if (this.dialogIdx === 3) {
+
+      this.dialog.button1 = new CustomDialogButton(
+        this.dialog.container,
+        this.dialog.uiTheme,
+        'Click',
+        150 * 0.75,
+        -65 * 0.75,
+        () => {
+          log('dialogIdx', this.dialogIdx)
+          if (this.dialogIdx !== 3) {
+            this.dialog.closeDialogWindow()
+            this.endInteraction()
+            this.handleWalkAway()
+            return
+          }
+          openExternalURL('https://bit.ly/40C8dhF')
+          this.dialog.confirmText(1)
+          this.dialog.closeDialogWindow()
+          this.dialog.openDialogWindow(this.dialogScript, 4)
+          this.dialogIdx = 4
+        },
+        false,
+        ButtonStyles.RED
+      )
+    } else {
+      this.dialog.button1 = this.standardDialogBtn1
+    }
+  }
+
+  endInteraction () {
+    super.endInteraction()
+    this.isInteracted = false
   }
 
   onWalkAway = () => {
@@ -91,7 +206,7 @@ export class CustomNPC extends NPC {
         this.playAnimation(anim.name, true, anim.duration)
 
         this.followPathTimeout = setTimeout(anim.duration * 1000, () => {
-          // if (this.isInteracted) return
+          if (this.isInteracted) return
           this.walkToNextPoint(nextPos)
         })
       },

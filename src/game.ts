@@ -13,6 +13,25 @@ const resources = {
   floor7: 'images/floor/7.jpg',
   floor8: 'images/floor/8.jpg',
   floor9: 'images/floor/9.jpg',
+  '1': 'images/1.png',
+  '2': 'images/2.png',
+  '3': 'images/3.png',
+  '4': 'images/4.png',
+  '5-1': 'https://www.sgh.waw.pl/knop/en',
+  '6': 'images/6.png',
+  '7': 'images/7.png',
+  '8': 'images/8.png',
+  '9': 'images/9.png',
+  '10': 'images/10.png',
+  '10-1': 'https://ksiegarnia.pwn.pl/Modern-leisure-society-consumer-behavior,931161169,p.html',
+  '11': 'images/11.png',
+  '12': 'images/12.png',
+  '13': 'images/13.png',
+  '14-1': 'https://www.sgh.waw.pl/knop/en/institute-value-management',
+  '15': 'images/15.png',
+  '16': 'images/16.png',
+  '17': 'images/17.png',
+  '17-1': 'https://www.sgh.waw.pl/knop/konferencje-i-seminaria-instytutu-zarzadzania-wartoscia '
 }
 
 const scene = new Entity()
@@ -26,10 +45,10 @@ build.setParent(scene)
 
 /*----------------------TOTEMY DACH--------------------------*/
 const totem_chmura = new Totem('models/totemy-dach/totem_chmura.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,2,0)
+      position: new Vector3(0, 2, 0)
     }
   },
   image: {
@@ -42,10 +61,10 @@ totem_chmura.addComponent(new Transform({
 totem_chmura.setParent(build)
 
 const totem_kartagraficzna = new Totem('models/totemy-dach/totem_kartagraficzna.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
   image: {
@@ -58,10 +77,10 @@ totem_kartagraficzna.addComponent(new Transform({
 totem_kartagraficzna.setParent(build)
 
 const totem_macintosh = new Totem('models/totemy-dach/totem_macintosh.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,1.9,0)
+      position: new Vector3(0, 1.9, 0)
     }
   },
   image: {
@@ -74,10 +93,10 @@ totem_macintosh.addComponent(new Transform({
 totem_macintosh.setParent(build)
 
 const totem_meta = new Totem('models/totemy-dach/totem_meta.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
   image: {
@@ -90,10 +109,10 @@ totem_meta.addComponent(new Transform({
 totem_meta.setParent(build)
 
 const totem_minecraft = new Totem('models/totemy-dach/totem_minecraft.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,2.25,0)
+      position: new Vector3(0, 2.25, 0)
     }
   },
   image: {
@@ -106,10 +125,10 @@ totem_minecraft.addComponent(new Transform({
 totem_minecraft.setParent(build)
 
 const totem_pizza = new Totem('models/totemy-dach/totem_pizza.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,2,0)
+      position: new Vector3(0, 2, 0)
     }
   },
   image: {
@@ -122,10 +141,10 @@ totem_pizza.addComponent(new Transform({
 totem_pizza.setParent(build)
 
 const totem_sfera = new Totem('models/totemy-dach/totem_sfera.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,2.25,0)
+      position: new Vector3(0, 2.25, 0)
     }
   },
   image: {
@@ -138,10 +157,10 @@ totem_sfera.addComponent(new Transform({
 totem_sfera.setParent(build)
 
 const totem_shiba = new Totem('models/totemy-dach/totem_shiba.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,2.5,0)
+      position: new Vector3(0, 2.5, 0)
     }
   },
   image: {
@@ -154,10 +173,10 @@ totem_shiba.addComponent(new Transform({
 totem_shiba.setParent(build)
 
 const totem_www = new Totem('models/totemy-dach/totem_www.glb', {
-  particles:{
-    model:  'models/particles_dach.glb',
+  particles: {
+    model: 'models/particles_dach.glb',
     position: {
-      position: new Vector3(0,2.5,0)
+      position: new Vector3(0, 2.5, 0)
     }
   },
   image: {
@@ -172,46 +191,51 @@ totem_www.setParent(build)
 
 /*----------------------TOTEMY PARTER--------------------------*/
 const totem_wejscie1 = new Totem('models/totemy-dach/totem_sfera.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,2.25,0)
+      position: new Vector3(0, 2.25, 0)
     }
   },
   image: {
-    path: resources.exampleImage
+    path: resources['1'],
+    sw: 4271,
+    sh: 4271
   }
 })
 totem_wejscie1.addComponent(new Transform({
-  position: new Vector3(-54,1,-27.5)
+  position: new Vector3(-54, 1, -27.5)
 }))
 totem_wejscie1.setParent(build)
 
 const totem_wejscie2 = new Totem('models/totemy-dach/totem_sfera.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,2.25,0)
+      position: new Vector3(0, 2.25, 0)
     }
   },
   image: {
-    path: resources.exampleImage
+    path: resources['2'],
+    sw: 1654,
+    sh: 1654
   }
 })
 totem_wejscie2.addComponent(new Transform({
-  position: new Vector3(-54,1,-36.5)
+  position: new Vector3(-54, 1, -36.5)
 }))
 totem_wejscie2.setParent(build)
 
 const totem_kula = new Totem('models/totemy-parter/totem_kula.glb', {
-  particles:{
-    model:  'models/particles_kula_centralna.glb',
+  particles: {
+    model: 'models/particles_kula_centralna.glb',
     position: {
-      position: new Vector3(0,3.5,0)
+      position: new Vector3(0, 3.5, 0)
     }
   },
+  link: resources['17-1'],
   image: {
-    path: resources.exampleImage
+    path: resources['17']
   }
 })
 totem_kula.addComponent(new Transform({
@@ -220,13 +244,15 @@ totem_kula.addComponent(new Transform({
 totem_kula.setParent(build)
 
 const totem_blockchain1 = new Totem('models/totemy-parter/totem_blockchain.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.6,0)
+      position: new Vector3(0, 1.6, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['15']
+  }
 })
 totem_blockchain1.addComponent(new Transform({
   position: new Vector3(-49.604, 1.90034, -14.3937)
@@ -234,13 +260,15 @@ totem_blockchain1.addComponent(new Transform({
 totem_blockchain1.setParent(build)
 
 const totem_blockchain2 = new Totem('models/totemy-parter/totem_blockchain.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.6,0)
+      position: new Vector3(0, 1.6, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['16']
+  }
 })
 totem_blockchain2.addComponent(new Transform({
   position: new Vector3(-49.604, 1.90034, -18.7819)
@@ -248,13 +276,13 @@ totem_blockchain2.addComponent(new Transform({
 totem_blockchain2.setParent(build)
 
 const totem_blockchain3 = new Totem('models/totemy-parter/totem_blockchain.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.6,0)
+      position: new Vector3(0, 1.6, 0)
     }
   },
-  link: resources.linkToGoogle
+  link: resources['14-1']
 })
 totem_blockchain3.addComponent(new Transform({
   position: new Vector3(-45.2007, 1.90034, -14.3937)
@@ -262,13 +290,15 @@ totem_blockchain3.addComponent(new Transform({
 totem_blockchain3.setParent(build)
 
 const totem_inne1 = new Totem('models/totemy-parter/totem_inne.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['12']
+  }
 })
 totem_inne1.addComponent(new Transform({
   position: new Vector3(-14.4668, 1.45938, -14.3337)
@@ -276,13 +306,15 @@ totem_inne1.addComponent(new Transform({
 totem_inne1.setParent(build)
 
 const totem_inne2 = new Totem('models/totemy-parter/totem_inne.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['11']
+  }
 })
 totem_inne2.addComponent(new Transform({
   position: new Vector3(-14.4668, 1.45938, -18.7463)
@@ -290,13 +322,15 @@ totem_inne2.addComponent(new Transform({
 totem_inne2.setParent(build)
 
 const totem_inne3 = new Totem('models/totemy-parter/totem_inne.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['13']
+  }
 })
 totem_inne3.addComponent(new Transform({
   position: new Vector3(-18.8524, 1.45938, -14.3337)
@@ -304,13 +338,16 @@ totem_inne3.addComponent(new Transform({
 totem_inne3.setParent(build)
 
 const totem_inne4 = new Totem('models/totemy-parter/totem_inne.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  link: resources['10-1'],
+  image: {
+    path: resources['10']
+  }
 })
 totem_inne4.addComponent(new Transform({
   position: new Vector3(-14.4668, 1.45938, -23.1425)
@@ -318,13 +355,15 @@ totem_inne4.addComponent(new Transform({
 totem_inne4.setParent(build)
 
 const totem_prawo1 = new Totem('models/totemy-parter/totem_prawo.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['7']
+  }
 })
 totem_prawo1.addComponent(new Transform({
   position: new Vector3(-14.4693, 1.44924, -49.6006)
@@ -332,13 +371,15 @@ totem_prawo1.addComponent(new Transform({
 totem_prawo1.setParent(build)
 
 const totem_prawo2 = new Totem('models/totemy-parter/totem_prawo.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['8']
+  }
 })
 totem_prawo2.addComponent(new Transform({
   position: new Vector3(-14.4693, 1.44924, -45.0837)
@@ -346,13 +387,15 @@ totem_prawo2.addComponent(new Transform({
 totem_prawo2.setParent(build)
 
 const totem_prawo3 = new Totem('models/totemy-parter/totem_prawo.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['6']
+  }
 })
 totem_prawo3.addComponent(new Transform({
   position: new Vector3(-18.59, 1.44924, -49.6006)
@@ -360,13 +403,15 @@ totem_prawo3.addComponent(new Transform({
 totem_prawo3.setParent(build)
 
 const totem_prawo4 = new Totem('models/totemy-parter/totem_prawo.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['9']
+  }
 })
 totem_prawo4.addComponent(new Transform({
   position: new Vector3(-14.4693, 1.44924, -40.6695)
@@ -374,13 +419,15 @@ totem_prawo4.addComponent(new Transform({
 totem_prawo4.setParent(build)
 
 const totem_technologia1 = new Totem('models/totemy-parter/totem_technologia.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: {
+    path: resources['4']
+  }
 })
 totem_technologia1.addComponent(new Transform({
   position: new Vector3(-49.5803, 1.603, -49.5911)
@@ -388,13 +435,13 @@ totem_technologia1.addComponent(new Transform({
 totem_technologia1.setParent(build)
 
 const totem_technologia2 = new Totem('models/totemy-parter/totem_technologia.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  image: { path: resources['3'] }
 })
 totem_technologia2.addComponent(new Transform({
   position: new Vector3(-49.5803, 1.603, -45.1144)
@@ -402,13 +449,13 @@ totem_technologia2.addComponent(new Transform({
 totem_technologia2.setParent(build)
 
 const totem_technologia3 = new Totem('models/totemy-parter/totem_technologia.glb', {
-  particles:{
-    model:  'models/particles_totemy.glb',
+  particles: {
+    model: 'models/particles_totemy.glb',
     position: {
-      position: new Vector3(0,1.5,0)
+      position: new Vector3(0, 1.5, 0)
     }
   },
-  link: resources.linkToGoogle
+  link: resources['5-1']
 })
 totem_technologia3.addComponent(new Transform({
   position: new Vector3(-45.0331, 1.603, -49.5911)

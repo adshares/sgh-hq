@@ -9,7 +9,7 @@ export class Build extends Entity {
     super()
 
     const build = new Entity()
-    build.addComponent(new GLTFShape('models/sgh-build_3.glb'))
+    build.addComponent(new GLTFShape('models/sgh-build_4.glb'))
     build.setParent(this)
 
     const groundCoords = new Vector3(59.39, 2.88, 15)

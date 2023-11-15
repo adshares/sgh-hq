@@ -1,7 +1,9 @@
 import { UIPlacement } from './UIPlacement'
 
 declare type TImage = {
-  path: string
+  path: string,
+  sw?: number,
+  sh?: number,
 }
 
 declare type TRS = {
@@ -31,7 +33,7 @@ class RotationSystem implements ISystem {
     if (typeof (speed) !== 'number') {
       speed = 2
     }
-    log(speed,{ entity, speed })
+    log(speed, { entity, speed })
     this._entities = [...this._entities, { entity, speed }]
     // log(this._entities)
   }
@@ -44,21 +46,24 @@ export class Totem extends Entity {
   private image: UIPlacement | undefined
   private particles: Entity | undefined
 
-  constructor (model: string, config?: { link?: string, image?: TImage, particles?: {model: string, position?: TransformConstructorArgs} }) {
+  constructor (model: string, config?: { link?: string, image?: TImage, particles?: { model: string, position?: TransformConstructorArgs } }) {
     super()
     const rs = new RotationSystem()
 
     this.addComponent(new GLTFShape(model))
-    if (!!config && !!config.link) {
+    if (!!config && !!config.link && !config.image) {
       this.addComponent(new OnPointerDown(() => {
         openExternalURL(<string>config.link)
       }))
     }
 
     if (!!config && !!config.image) {
-      this.image = new UIPlacement()
+      this.image = new UIPlacement(config.image)
       this.addComponent(new OnPointerDown(() => {
         this.image?.render(<string>config.image?.path)
+        if (!!config.link) {
+          this.image?.imageLink(config.link)
+        }
       }))
     }
 
